@@ -43,7 +43,7 @@ Click `Reboot`
 Now lets check systems manager  
 
 move to https://console.aws.amazon.com/systems-manager/home?region=us-east-1  
-Under `Instances & Nodes` click `Managed Instances`  
+Under `Node Management` click `Fleet Manager`  
 This will show any instances which have permissions to Systems manager & connectivity to systems manager  
 Instances which have the agent and permissions register themselves to become `Managed Instances`  
 You should see two instances `AWS-WIN` and `AWS-UBUNTU`  
@@ -99,6 +99,10 @@ This will connect you into the `AWS-CENTOS` instance
 
 make sure python3 works  
 
+run following commands to point to the available mirrorlist before running next commands
+
+`sudo sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*`
+`sudo sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*`
 
 for centos the command to install the Systems Manager Agent is   
 

@@ -2,7 +2,7 @@
 
 ![Stage4 - PNG](https://github.com/acantril/learn-cantrill-io-labs/blob/master/aws-elastic-wordpress-evolution/02_LABINSTRUCTIONS/STAGE4%20-%20SPLIT%20OUT%20EFS.png)
 
-Welcome back, in stage 4 of this demo series yyou will be creating an EFS file system designed to store the wordpress locally stored media. This area stores any media for posts uploaded when creating the post as well as theme data.  By storing this on a shared file system it means that the data can be used across all instances in a consistent way, and it lives on past the lifetime of the instance.  
+Welcome back, in stage 4 of this demo series you will be creating an EFS file system designed to store the wordpress locally stored media. This area stores any media for posts uploaded when creating the post as well as theme data.  By storing this on a shared file system it means that the data can be used across all instances in a consistent way, and it lives on past the lifetime of the instance.  
 
 # STAGE 4A - Create EFS File System
 
@@ -15,7 +15,7 @@ For `Name` type `A4L-WORDPRESS-CONTENT`
 This is critical data so .. ensure `Enable Automatic Backups` is enabled.  
 for `LifeCycle management` leave as the default of `30 days since last access`  
 You have two `performance modes` to pick, choose `General Purpose` as MAX I/O is for very spefific high performance scenarios.  
-for `Throughput mode` pick `bursting` wich links performance to how much space you consume. The more consumed, the higher performance. The other option Provisioned allows for performance to be specified independant of consumption.  
+for `Throughput mode` pick `bursting` which links performance to how much space you consume. The more consumed, the higher performance. The other option Provisioned allows for performance to be specified independant of consumption.  
 Untick `Enable encryption of data at rest` .. in production you would leave this on, but for this demo which focusses on architecture it simplifies the implementation.  
 Click `Next`
 
@@ -43,7 +43,7 @@ Note down the `fs-XXXXXXXX` file system ID once visible at the top of this scree
 
 # STAGE 4B - Add an fsid to parameter store
 
-Now that the file system has created, you need to add another parameter store value for the file system ID .. so that the automatically building instance(s) can load this safely.  
+Now that the file system has been created, you need to add another parameter store value for the file system ID so that the automatically built instance(s) can load this safely.
 
 Move to the Systems Manager console https://console.aws.amazon.com/systems-manager/home?region=us-east-1#  
 Click on `Parameter Store` on the left menu  
@@ -117,7 +117,7 @@ Once it restarts, ensure that you can still load the wordpress blog which is now
 Next you will update the launch template so that it automatically mounts the EFS file system during its provisioning process. This means that in the next stage, when you add autoscaling, all instances will have access to the same media store ...allowing the platform to scale.
 
 Go to the EC2 console https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:  
-CLick `Launch Templates`  
+Click `Launch Templates`  
 Check the box next to the `Wordpress` launch template, click `Actions` and click `Modify Template (Create New Version)`  
 for `Template version description` enter `App only, uses EFS filesystem defined in /A4L/Wordpress/EFSFSID`  
 Scroll to the bottom and expand `Advanced Details`  
@@ -132,7 +132,7 @@ EFSFSID=`echo $EFSFSID | sed -e 's/^"//' -e 's/"$//'`
 
 ```
 
-fine the line which says `yum install -y mariadb-server httpd wget`
+Find the line which says `yum install -y mariadb-server httpd wget`
 after `wget` add a space and paste in `amazon-efs-utils`  
 it should now look like `yum install -y mariadb-server httpd wget amazon-efs-utils`  
 
@@ -170,4 +170,4 @@ This configuration has several limitations :-
 - The IP of the instance is hardcoded into the database ....
 
 
-You can now move onto STAGE4
+You can now move onto STAGE 5

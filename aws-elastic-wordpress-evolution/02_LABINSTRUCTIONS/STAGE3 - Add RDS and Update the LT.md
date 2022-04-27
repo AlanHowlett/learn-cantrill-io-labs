@@ -37,7 +37,7 @@ Click `Databases`
 Click `Create Database`  
 Click `Standard Create`  
 Click `MySql`  
-Under `Version` select `MySQL 5.6.46` (best aurora compatability for snapshot migrations)  
+Under `Version` select `MySQL 5.7.31` (best aurora compatability for snapshot migrations)  
 
 Scroll down and select `Free Tier` under templates
 _this ensures there will be no costs for the database but it will be single AZ only_
@@ -64,7 +64,7 @@ Scroll to the bottom and click `create Database`
 Open the EC2 Console https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:  
 Click `Instances`  
 Locate the `WordPress-LT` instance, right click, `Connect` and choose `Session Manager` and then click `Connect`  
-Type `bash`  
+Type `sudo bash`  
 Type `cd`  
 Type `clear`  
 
@@ -135,7 +135,7 @@ mysql -h $DBEndpoint -u $DBUser -p$DBPassword $DBName < a4lWordPress.sql
 this command will substitute `localhost` in the config file for the contents of `$DBEndpoint` which is the RDS instance
 
 ```
-sed -i "s/'localhost'/'$DBEndpoint'/g" /var/www/html/wp-config.php
+sudo sed -i "s/'localhost'/'$DBEndpoint'/g" /var/www/html/wp-config.php
 ```
 
 
@@ -207,6 +207,6 @@ This configuration has several limitations :-
 - The IP of the instance is hardcoded into the database ....
 
 
-You can now move onto STAGE3
+You can now move onto STAGE 4
 
 
