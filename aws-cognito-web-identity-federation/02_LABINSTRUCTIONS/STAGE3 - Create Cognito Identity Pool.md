@@ -19,12 +19,16 @@ This advanced demo consists of 5 stages :-
 
 ![Stage3 - PNG](https://github.com/acantril/learn-cantrill-io-labs/blob/master/aws-cognito-web-identity-federation/02_LABINSTRUCTIONS/ARCHITECTURE-STAGE3.png)  
 
+# Video Guide
+[Stage3 - Video Guide](https://youtu.be/MXkqOgXkwRQ)
+
 
 # STAGE 3A - CREATE A COGNITO IDENTITY POOL  
 
-Move to the Cognito Console https://console.aws.amazon.com/cognito/home?region=us-east-1#    
-Click `Manage Identity Pools`   
-Under `Create new identity pool`   
+Move to the Cognito Console https://console.aws.amazon.com/cognito/home?region=us-east-1#
+On the menu on the left, select `Federated Identities`  
+We're going to be creating a new identity pool  
+If this is your first, the creation process will begin immediatly, if you already have any identity pools you'll have to click `federated identities` then click on `Create new identity pool`     
 In `Identity pool name` enter `PetIDFIDPool`   
 Expand `Authentication Providers` and click on `Google+`   
 In the `Google Client ID` box, enter the Google Client ID you noted down in the previous step.  
@@ -37,7 +41,8 @@ This is going to create two IAM roles
 One for `Your authenticated identities` and another for your `Your unauthenticated identities`    
 For now, we're just going to click on `Allow` we can review the roles later.    
 
-You will be presented with your `Identity Pool ID`, note this down, you will need it later.   
+You will be presented with your `Identity Pool ID`, note this down, you will need it later.
+Click to move back to the dashboard  
 
 # STAGE 3C - Adjust Permissions  
 
@@ -57,10 +62,10 @@ When you use WEDIDF with cognito, this role is assumed on your behalf by cognito
 
 Click `permissions` .. this defines what these credentials can do.  
 
-The cloudformation template created a managed policy which can access the `privatepatches` bucket  
-Click `Attach Policies`   
-Type `PrivatePatches` in the search box  
-Check the box next to `PrivatePatchesPermissions` and click `Attach Policy`    
+The cloudformation template created a managed policy which can access the `privatepatches` bucket
+Click `Add permissions` and then `Attach policies`  
+Type `PrivatePatches` in the search box and press `enter`  
+Check the box next to `PrivatePatchesPermissions` and click `Attach Policies`    
 
 
 # STAGE 3 - FINISH    

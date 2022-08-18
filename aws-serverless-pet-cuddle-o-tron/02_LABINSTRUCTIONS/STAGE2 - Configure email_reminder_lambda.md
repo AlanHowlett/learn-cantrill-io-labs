@@ -14,6 +14,9 @@ This advanced demo consists of 6 stages :-
 - STAGE 5 : Implement the static frontend application and test functionality
 - STAGE 6 : Cleanup the account
 
+# STAGE2 VIDEO GUIDE 
+[STAGE2 VIDEO GUIDE](https://youtu.be/MicGrt0_KUg)
+
 # STAGE 2A - CREATE THE Lambda Execution Role for Lambda
 
 In this stage of the demo you need to create an IAM role which the email_reminder_lambda will use to interact with other AWS services.  
@@ -35,7 +38,7 @@ Move to the lambda console https://console.aws.amazon.com/lambda/home?region=us-
 Click on `Create Function`  
 Select `Author from scratch`  
 For `Function name` enter `email_reminder_lambda`  
-and for runtime click the dropdown and pick `Python 3.8`  
+and for runtime click the dropdown and pick `Python 3.9`  
 Expand `Change default execution role`  
 Pick to `Use an existing Role`  
 Click the `Existing Role` dropdown and pick `LambdaRole` (there will be randomness and thats ok)  

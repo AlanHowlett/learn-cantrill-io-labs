@@ -19,6 +19,8 @@ This advanced demo consists of 5 stages :-
 
 ![Stage2- PNG](https://github.com/acantril/learn-cantrill-io-labs/blob/master/aws-cognito-web-identity-federation/02_LABINSTRUCTIONS/ARCHITECTURE-STAGE2.png)  
 
+# Video Guide
+[Stage2 - Video Guide](https://youtu.be/wWQ8lgqa4fo)
 
 # STAGE 2A - Create Google API PROJECT  
 
@@ -57,9 +59,9 @@ Click `CREATE CREDENTIALS` and then `OAuth client ID`
 In the `Application type download` select `Web Application`   
 Under Name enter `PetIDFServerlessApp`  
 
-We need to add the S3 bucket URL, this is the Static Website Hosting Endpoints you noted down earlier.   
+We need to add the `WebApp URL`, this is the distribution domain name of the cloudfront distribution (making sure it has https:// before it)  
 Click `ADD URI` under `Authorized JavaScript origins`   
-Enter the endpoint URL, it should look something like this `http://webidf-appbucket-jkj6jpdfewk4.s3-website-us-east-1.amazonaws.com` but you NEED to use your own.   
+Enter the endpoint URL, you need to enter the `Distribution DNS Name` of your CloudFront distribution (created by the 1-click deployment), you should add https:// at the start,  it should look something like this `https://d38sv1tnkmk8i6.cloudfront.net` but you NEED to use your own distributions DNS name **DONT USE THIS ONE**  
 Click `CREATE`  
 
 You will be presented with two pieces of information  
@@ -67,8 +69,9 @@ You will be presented with two pieces of information
 - `Client ID`  
 - `Client Secret`  
 
-Note them both down, using the copy button, store them somewhere safe you will need them soon.  
-Once they are noted down safely, click `OK`   
+Note down the `Client ID` you will need it later.  
+You wont need the `Client Secret` again.  
+Once noted down safely, click `OK`   
 
 # STAGE 2 - FINISH  
 

@@ -11,6 +11,9 @@ This advanced demo consists of 5 stages :-
 - STAGE 4 : Update App Bucket & Test Application 
 - STAGE 5 : Cleanup the account **<= THIS STAGE**
 
+# Video Guide
+[Stage5 - Video Guide](https://youtu.be/aJALTW-F24g)
+
 # STAGE 5A - Delete the Google API Project & Credentials
 https://console.developers.google.com/cloud-resource-manager 
 Select `PetIDF` and click `DELETE`  
@@ -19,7 +22,7 @@ Type in the ID of the project, which might have a slightly different name (shown
 
 # STAGE 5B - Delete the Cognito ID Pool
 Move to the cognito console https://console.aws.amazon.com/cognito/home?region=us-east-1  
-Click `Manage Identity Pools`  
+Click `Federated Identities`  
 Click on `PetIDFIDPool`  
 Click `Edit Identity Pool`  
 Locate and expand `Delete identity pool`  

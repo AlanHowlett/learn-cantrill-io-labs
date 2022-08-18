@@ -13,6 +13,9 @@ This advanced demo consists of 6 stages :-
 - STAGE 5 : Implement the static frontend application and test functionality
 - STAGE 6 : Cleanup the account
 
+# STAGE4 VIDEO GUIDE 
+[STAGE4 VIDEO GUIDE](https://youtu.be/mhFYhpobgOs)
+
 
 In this stage you will be creating the front end API for the serverless application.  
 The front end loads from S3, runs in your browser and communicates with this API.  
@@ -24,7 +27,7 @@ First you will create the supporting `API_LAMBDA` and then the `API Gateway`
 Move to the Lambda console https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions  
 Click on `Create Function`  
 for `Function Name` use `api_lambda`  
-for `Runtime` use `Python 3.8`  
+for `Runtime` use `Python 3.9`  
 Expand `Change default execution role`  
 Select `Use an existing role`  
 Choose the `LambdaRole` from the dropdown  
